@@ -41,11 +41,15 @@
       <path d="M26 62h68l-1.6 20H27.6L26 62z" fill="rgba(255,255,255,.45)"/>
       <rect x="16" y="24" width="88" height="14" rx="7" fill="rgba(255,255,255,.85)"/>
       <rect x="66" y="2" width="9" height="40" rx="4.5" transform="rotate(12 66 2)" fill="rgba(255,255,255,.8)"/>
-      <circle cx="60" cy="104" r="21" fill="#ffffff" opacity=".92"/>
-      <g stroke="#14120f" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M60 90.5a5 5 0 0 1 7.5 2.2 5 5 0 0 1 5.1 5.9 5 5 0 0 1 1.1 7.7 5 5 0 0 1-3.2 7.1 5 5 0 0 1-6.6 4.2 5 5 0 0 1-7.8 0 5 5 0 0 1-6.6-4.2 5 5 0 0 1-3.2-7.1 5 5 0 0 1 1.1-7.7 5 5 0 0 1 5.1-5.9A5 5 0 0 1 60 90.5z"/>
-        <path d="M55 101v2.6"/><path d="M65 101v2.6"/>
-        <path d="M60 109a2.6 2.2 0 0 1-4.6 0"/><path d="M60 109a2.6 2.2 0 0 0 4.6 0"/>
+      <circle cx="60" cy="104" r="23" fill="#ffffff" opacity=".95"/>
+      <g fill="none" stroke="#14120f" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 47.93 107.22 A 4.90 4.90 0 0 1 48.25 100.91 A 5.26 5.26 0 0 1 52.83 95.90 A 5.75 5.75 0 0 1 60.00 94.00 A 5.75 5.75 0 0 1 67.17 95.90 A 5.26 5.26 0 0 1 71.75 100.91 A 4.90 4.90 0 0 1 72.07 107.22"/>
+        <path d="M56.3 110.4 Q 58.1 112.6, 60 110.7 Q 61.9 112.6, 63.7 110.4"/>
+      </g>
+      <g fill="#14120f">
+        <circle cx="55.6" cy="105.6" r="1.45"/>
+        <circle cx="64.4" cy="105.4" r="1.45"/>
+        <path d="M57.9 107.2 Q 60 106.1, 62.1 107.2 Q 61.1 110, 60 110 Q 58.9 110, 57.9 107.2 Z"/>
       </g>
     </svg>`;
   }

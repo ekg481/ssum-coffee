@@ -25,11 +25,13 @@ requests: open `index.html` and it runs.
   chips and the detail sheet, **Gochi Hand** for the ssum wordmark. All four are **self-hosted**
   in `assets/fonts/` (~210KB, latin subset) — no Google Fonts call, so the handwriting shows up
   even on a network that blocks the CDN.
-- **Logo** — redrawn as SVG to match the cup sticker: one continuous curly silhouette (crown and
-  floppy ears in a single outline), dot eyes, and the little cup held at the chin with a straw to
-  the mouth. `assets/img/mark.svg` = `logo.svg` (same art, used at every size),
-  `assets/img/favicon.svg`. The same dog rides as the sticker on every drink illustration, and it
-  recolors with the theme because it strokes in `currentColor`.
+- **Logo** — traced from a magnified crop of the cup sticker rather than drawn from memory:
+  the open curly silhouette carrying crown and both ears, the two cheek lines that separate face
+  from ears, round dot eyes, the nose and `w` mouth, the straw, the solid cup with its white band,
+  and the paw hooking around it. `assets/img/mark.svg` = `logo.svg`, plus `assets/img/favicon.svg`.
+  It strokes in `currentColor`, so it inverts with the theme for free.
+  The hero pairs it with the hand-lettered `ssum` to reproduce the full sticker; drink cards carry
+  a purpose-drawn 28px version of the face, since the traced one turns to mud at that size.
 
 ## Built for iPhone first
 

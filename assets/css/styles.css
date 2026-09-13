@@ -305,7 +305,14 @@ h1, h2, h3, .display {
   color: var(--ink);
   overflow: hidden;
 }
-.hero__disc svg.mark { width: 62%; height: 62%; }
+.hero__disc .sticker { display: grid; justify-items: center; gap: 2%; width: 66%; }
+.hero__disc svg.mark { width: 100%; height: auto; }
+.sticker__word {
+  font-family: var(--font-marker);
+  font-size: clamp(1.6rem, 7vw, 2.6rem);
+  letter-spacing: .16em; text-indent: .16em;
+  line-height: 1; color: var(--ink);
+}
 .hero__ring {
   position: absolute; inset: -6% ;
   border-radius: 50%;
@@ -431,7 +438,7 @@ h1, h2, h3, .display {
   width: fit-content; max-width: calc(100% - 20px);
   padding: 5px 10px; border-radius: var(--r-pill);
   background: rgba(255,255,255,.86); color: #14120f;
-  font-family: var(--font-hand); font-size: clamp(.7rem, 2.4vw, .8rem); font-weight: 400; letter-spacing: .01em; text-transform: uppercase;
+  font-family: var(--font-hand); font-size: clamp(.76rem, 2.6vw, .86rem); font-weight: 400; letter-spacing: .005em; text-transform: none;
   backdrop-filter: blur(8px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 .drink__body { padding: clamp(13px, 3.4vw, 18px) clamp(14px, 3.6vw, 20px) clamp(16px, 4vw, 22px); display: flex; flex-direction: column; gap: 6px; flex: 1; }
