@@ -1,20 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Ssum Coffee logo: a fluffy dog sipping an iced coffee">
-  <g fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round">
-    <!-- fluffy head -->
-    <path d="M 100.00 40.00 A 15.87 15.87 0 0 1 123.79 46.98 A 15.87 15.87 0 0 1 140.02 65.72 A 15.87 15.87 0 0 1 143.55 90.26 A 15.87 15.87 0 0 1 133.25 112.81 A 15.87 15.87 0 0 1 112.40 126.22 A 15.87 15.87 0 0 1 87.60 126.22 A 15.87 15.87 0 0 1 66.75 112.81 A 15.87 15.87 0 0 1 56.45 90.26 A 15.87 15.87 0 0 1 59.98 65.72 A 15.87 15.87 0 0 1 76.21 46.98 A 15.87 15.87 0 0 1 100.00 40.00 Z"/>
-    <!-- eyes -->
-    <path d="M84 80 v7" />
-    <path d="M114 80 v7" />
-    <!-- nose + muzzle -->
-    <path d="M99 99 a5 4.2 0 0 1 -9 0" />
-    <path d="M99 99 a5 4.2 0 0 0 9 0" />
-    <!-- straw -->
-    <path d="M101 103 L 144 92" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="48 48 104 104" role="img" aria-label="ssum coffee dog mark">
+  <g fill="none" stroke="currentColor" stroke-width="5.4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- one continuous curly silhouette: crown, ears, jaw -->
+    <path d="M100.0 55.0 A 14.2 14.2 0 0 1 120.0 59.7 A 13.5 13.5 0 0 1 134.8 72.4 A 13.3 13.3 0 0 1 142.8 90.0 A 14.4 14.4 0 0 1 141.4 110.9 A 15.9 15.9 0 0 1 121.6 122.7 A 14.9 14.9 0 0 1 100.0 122.5 A 14.9 14.9 0 0 1 78.4 122.7 A 15.9 15.9 0 0 1 58.6 110.9 A 14.4 14.4 0 0 1 57.2 90.0 A 13.3 13.3 0 0 1 65.2 72.4 A 13.5 13.5 0 0 1 80.0 59.7 A 14.2 14.2 0 0 1 100.0 55.0 Z"/>
+    <!-- muzzle -->
+    <path d="M100 103c-3.2 0-5.6-2.1-6-4.4"/>
+    <path d="M100 103c3.2 0 5.6-2.1 6-4.4"/>
+    <!-- straw from the mouth into the cup -->
+    <path d="M104.5 103 L 116 118.5"/>
+    <!-- small cup, held at the chin -->
+    <path d="M104 120h23l-2.3 21a4.4 4.4 0 0 1-4.4 4h-9.6a4.4 4.4 0 0 1-4.4-4Z"/>
+    <path d="M101.5 120h28"/>
   </g>
-  <g fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round">
-    <!-- cup -->
-    <path d="M131 100 h36 l-5.5 52 a6 6 0 0 1 -6 5 h-13 a6 6 0 0 1 -6 -5 Z"/>
-    <path d="M128 100 h42" />
-    <path d="M136 124 h26" />
+  <g fill="currentColor">
+    <ellipse cx="88" cy="89" rx="3.1" ry="4.4"/>
+    <ellipse cx="112" cy="89" rx="3.1" ry="4.4"/>
   </g>
 </svg>

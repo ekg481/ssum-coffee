@@ -4,27 +4,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Drinks — ssum coffee</title>
-  <meta name="description" content="The full ssum coffee drink menu: signature lattes, espresso, matcha, hojicha and seasonal specials.">
-  <meta name="theme-color" content="#f7f4ef">
+  <meta name="description" content="The full ssum coffee menu: signature yuzu and cream-top drinks, espresso, flavour lattes, matcha and sweet refreshers.">
+  <meta name="theme-color" content="#f6f6f4">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="ssum coffee">
   <meta name="format-detection" content="telephone=no">
   <meta property="og:title" content="Drinks — ssum coffee">
-  <meta property="og:description" content="The full ssum coffee drink menu: signature lattes, espresso, matcha, hojicha and seasonal specials.">
+  <meta property="og:description" content="The full ssum coffee menu: signature yuzu and cream-top drinks, espresso, flavour lattes, matcha and sweet refreshers.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/img/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/patrick-hand.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/plus-jakarta-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body data-page="menu">
   <header class="nav">
     <div class="wrap nav__inner">
       <a class="brand" href="index.html" aria-label="ssum coffee — home">
-        <span class="brand__mark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="46 30 108 108" role="img" aria-label="ssum coffee dog mark"> <g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"> <path d="M 100.00 40.00 A 15.87 15.87 0 0 1 123.79 46.98 A 15.87 15.87 0 0 1 140.02 65.72 A 15.87 15.87 0 0 1 143.55 90.26 A 15.87 15.87 0 0 1 133.25 112.81 A 15.87 15.87 0 0 1 112.40 126.22 A 15.87 15.87 0 0 1 87.60 126.22 A 15.87 15.87 0 0 1 66.75 112.81 A 15.87 15.87 0 0 1 56.45 90.26 A 15.87 15.87 0 0 1 59.98 65.72 A 15.87 15.87 0 0 1 76.21 46.98 A 15.87 15.87 0 0 1 100.00 40.00 Z"/> <path d="M85 80 v7"/><path d="M115 80 v7"/> <path d="M100 99 a5 4.2 0 0 1 -9 0"/><path d="M100 99 a5 4.2 0 0 0 9 0"/> </g> </svg> </span>
+        <span class="brand__mark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="48 48 104 104" role="img" aria-label="ssum coffee dog mark"> <g fill="none" stroke="currentColor" stroke-width="5.4" stroke-linecap="round" stroke-linejoin="round"> <!-- one continuous curly silhouette: crown, ears, jaw --> <path d="M100.0 55.0 A 14.2 14.2 0 0 1 120.0 59.7 A 13.5 13.5 0 0 1 134.8 72.4 A 13.3 13.3 0 0 1 142.8 90.0 A 14.4 14.4 0 0 1 141.4 110.9 A 15.9 15.9 0 0 1 121.6 122.7 A 14.9 14.9 0 0 1 100.0 122.5 A 14.9 14.9 0 0 1 78.4 122.7 A 15.9 15.9 0 0 1 58.6 110.9 A 14.4 14.4 0 0 1 57.2 90.0 A 13.3 13.3 0 0 1 65.2 72.4 A 13.5 13.5 0 0 1 80.0 59.7 A 14.2 14.2 0 0 1 100.0 55.0 Z"/> <!-- muzzle --> <path d="M100 103c-3.2 0-5.6-2.1-6-4.4"/> <path d="M100 103c3.2 0 5.6-2.1 6-4.4"/> <!-- straw from the mouth into the cup --> <path d="M104.5 103 L 116 118.5"/> <!-- small cup, held at the chin --> <path d="M104 120h23l-2.3 21a4.4 4.4 0 0 1-4.4 4h-9.6a4.4 4.4 0 0 1-4.4-4Z"/> <path d="M101.5 120h28"/> </g> <g fill="currentColor"> <ellipse cx="88" cy="89" rx="3.1" ry="4.4"/> <ellipse cx="112" cy="89" rx="3.1" ry="4.4"/> </g> </svg> </span>
         <span class="brand__name">ssum <span>coffee</span></span>
       </a>
       <nav class="nav__links" aria-label="Primary">
@@ -43,17 +42,12 @@
     <section class="page-head wrap">
       <span class="eyebrow reveal">The menu</span>
       <h1 class="reveal" data-delay="60">Popular drinks.</h1>
-      <p class="reveal" data-delay="120">Twelve cups we're proud of. Tap one to see what's inside it, how sweet it runs, and what size it's built for. Oat milk is free on everything.</p>
+      <p class="reveal" data-delay="120">The whole board, straight off the wall. Tap any drink to see what's in it.</p>
+      <p class="form-note reveal" data-delay="160" data-addons style="margin-top:10px"></p>
     </section>
 
     <section class="wrap" style="padding-bottom:clamp(56px,9vw,116px)">
-      <div class="filters reveal" role="group" aria-label="Filter drinks">
-        <button class="chip" data-filter="all" aria-pressed="true" type="button">Everything</button>
-        <button class="chip" data-filter="signature" aria-pressed="false" type="button">Signature</button>
-        <button class="chip" data-filter="espresso" aria-pressed="false" type="button">Espresso &amp; brew</button>
-        <button class="chip" data-filter="non-coffee" aria-pressed="false" type="button">Non-coffee</button>
-        <button class="chip" data-filter="seasonal" aria-pressed="false" type="button">Seasonal</button>
-      </div>
+      <div class="filters reveal" data-filters role="group" aria-label="Filter drinks"></div>
       <div class="grid grid--drinks" data-drink-grid></div>
       <div class="empty" data-drink-empty hidden>
         <p>Nothing in that category yet — check back next season.</p>
@@ -62,7 +56,7 @@
       <div class="band reveal" style="margin-top:clamp(46px,7vw,80px)">
         <span class="band__glow band__glow--a" aria-hidden="true"></span>
         <h2>Not sure what to order?</h2>
-        <p>Tell the barista how you take your coffee at home and they'll pick for you. It works more often than it should.</p>
+        <p>Start with a signature — the yuzu bianca if you want bright, the lotus cream top if you want sweet.</p>
         <a class="btn" href="reviews.html">See what people loved <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
       </div>
     </section>
@@ -72,7 +66,7 @@
       <div class="footer__grid">
         <div class="footer__col">
           <a class="brand" href="index.html">
-            <span class="brand__mark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="46 30 108 108" role="img" aria-label="ssum coffee dog mark"> <g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"> <path d="M 100.00 40.00 A 15.87 15.87 0 0 1 123.79 46.98 A 15.87 15.87 0 0 1 140.02 65.72 A 15.87 15.87 0 0 1 143.55 90.26 A 15.87 15.87 0 0 1 133.25 112.81 A 15.87 15.87 0 0 1 112.40 126.22 A 15.87 15.87 0 0 1 87.60 126.22 A 15.87 15.87 0 0 1 66.75 112.81 A 15.87 15.87 0 0 1 56.45 90.26 A 15.87 15.87 0 0 1 59.98 65.72 A 15.87 15.87 0 0 1 76.21 46.98 A 15.87 15.87 0 0 1 100.00 40.00 Z"/> <path d="M85 80 v7"/><path d="M115 80 v7"/> <path d="M100 99 a5 4.2 0 0 1 -9 0"/><path d="M100 99 a5 4.2 0 0 0 9 0"/> </g> </svg> </span>
+            <span class="brand__mark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="48 48 104 104" role="img" aria-label="ssum coffee dog mark"> <g fill="none" stroke="currentColor" stroke-width="5.4" stroke-linecap="round" stroke-linejoin="round"> <!-- one continuous curly silhouette: crown, ears, jaw --> <path d="M100.0 55.0 A 14.2 14.2 0 0 1 120.0 59.7 A 13.5 13.5 0 0 1 134.8 72.4 A 13.3 13.3 0 0 1 142.8 90.0 A 14.4 14.4 0 0 1 141.4 110.9 A 15.9 15.9 0 0 1 121.6 122.7 A 14.9 14.9 0 0 1 100.0 122.5 A 14.9 14.9 0 0 1 78.4 122.7 A 15.9 15.9 0 0 1 58.6 110.9 A 14.4 14.4 0 0 1 57.2 90.0 A 13.3 13.3 0 0 1 65.2 72.4 A 13.5 13.5 0 0 1 80.0 59.7 A 14.2 14.2 0 0 1 100.0 55.0 Z"/> <!-- muzzle --> <path d="M100 103c-3.2 0-5.6-2.1-6-4.4"/> <path d="M100 103c3.2 0 5.6-2.1 6-4.4"/> <!-- straw from the mouth into the cup --> <path d="M104.5 103 L 116 118.5"/> <!-- small cup, held at the chin --> <path d="M104 120h23l-2.3 21a4.4 4.4 0 0 1-4.4 4h-9.6a4.4 4.4 0 0 1-4.4-4Z"/> <path d="M101.5 120h28"/> </g> <g fill="currentColor"> <ellipse cx="88" cy="89" rx="3.1" ry="4.4"/> <ellipse cx="112" cy="89" rx="3.1" ry="4.4"/> </g> </svg> </span>
             <span class="brand__name">ssum <span>coffee</span></span>
           </a>
           <p style="margin-top:14px;max-width:34ch;color:var(--ink-3)">썸 — the soft, fluttery in-between. That is the feeling we are trying to pour.</p>
@@ -104,7 +98,7 @@
       </div>
       <div class="footer__bottom">
         <span>© <span data-year></span> ssum coffee. Made with a lot of milk foam.</span>
-        <span>Rowland Heights, California</span>
+        <span>Anaheim, California</span>
       </div>
     </div>
   </footer>

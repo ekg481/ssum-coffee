@@ -15,8 +15,22 @@
     star: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.4l6.5-.9L12 2.6z"/></svg>',
     starOutline: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.2l2.75 5.6 6.15.9-4.45 4.35 1.05 6.15L12 17.3l-5.5 2.9 1.05-6.15L3.1 9.7l6.15-.9L12 3.2z"/></svg>',
     check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>',
+    car: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v2.5M20 16v2.5"/><path d="M3.5 16v-3.4l1.8-4.4A2 2 0 0 1 7.1 7h9.8a2 2 0 0 1 1.8 1.2l1.8 4.4V16z"/><circle cx="7.5" cy="16" r="1.3"/><circle cx="16.5" cy="16" r="1.3"/></svg>',
+    wifi: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9a15 15 0 0 1 19 0"/><path d="M6 12.5a10 10 0 0 1 12 0"/><path d="M9.3 16a5 5 0 0 1 5.4 0"/><path d="M12 19.3h.01"/></svg>',
+    paw: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="7" cy="9" rx="1.9" ry="2.5"/><ellipse cx="12" cy="6.8" rx="1.9" ry="2.6"/><ellipse cx="17" cy="9" rx="1.9" ry="2.5"/><path d="M12 12.2c2.6 0 4.6 2 4.6 4.1 0 1.7-1.3 2.9-3 2.9-.8 0-1.1-.3-1.6-.3s-.8.3-1.6.3c-1.7 0-3-1.2-3-2.9 0-2.1 2-4.1 4.6-4.1z"/></svg>',
     empty: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>'
   };
+
+  /* black-and-white shade ramp — the whole gallery stays monochrome */
+  const SHADES = {
+    cream:    { c1: "#f1f1ed", c2: "#d7d7d1", cup: "#c9c9c2" },
+    light:    { c1: "#e6e6e1", c2: "#c3c3bc", cup: "#aeaea7" },
+    mid:      { c1: "#d3d3cd", c2: "#9d9d97", cup: "#82827c" },
+    dark:     { c1: "#aaaaa4", c2: "#616160", cup: "#46463f" },
+    espresso: { c1: "#878782", c2: "#333331", cup: "#211f1e" }
+  };
+  const shadeOf = (d) => SHADES[d.shade] || SHADES.mid;
+  const catLabel = (id) => (data.cats.find((c) => c.id === id) || {}).label || "";
 
   /* Cup illustration used on drink cards + modal */
   function cupSVG(fill, opts = {}) {
@@ -187,14 +201,15 @@
 
   /* ---------- drinks ---------- */
   function drinkCard(d) {
-    return `<button class="drink reveal" type="button" data-drink="${d.id}" data-cat="${d.cat}" style="--c1:${d.c1};--c2:${d.c2}">
-      ${d.tag ? `<span class="drink__tag">${d.tag}</span>` : ""}
-      <span class="drink__art" aria-hidden="true">${cupSVG(d.cup)}</span>
+    const sh = shadeOf(d);
+    return `<button class="drink reveal" type="button" data-drink="${d.id}" data-cat="${d.cat}" style="--c1:${sh.c1};--c2:${sh.c2}">
+      ${d.tag ? `<span class="drink__tag">${escapeHTML(d.tag)}</span>` : ""}
+      <span class="drink__art" aria-hidden="true">${cupSVG(sh.cup)}</span>
       <span class="drink__body">
-        <span class="drink__row"><span class="drink__name">${d.name}</span><span class="drink__price">${d.price}</span></span>
-        <span class="drink__note">${d.note}</span>
+        <span class="drink__row"><span class="drink__name">${escapeHTML(d.name)}</span><span class="drink__price">${d.price}</span></span>
+        <span class="drink__note">${escapeHTML(d.note)}</span>
         <span class="drink__foot">
-          <span class="drink__caf">${d.caffeine}<span> caffeine</span></span><span class="drink__more">details →</span>
+          <span class="drink__caf">${catLabel(d.cat)}</span><span class="drink__more">details →</span>
         </span>
       </span>
     </button>`;
@@ -207,7 +222,13 @@
     const source = limit ? data.drinks.slice(0, limit) : data.drinks;
     grid.innerHTML = source.map(drinkCard).join("");
 
-    /* filters */
+    /* filters, built from the category list */
+    const bar = $("[data-filters]");
+    if (bar) {
+      bar.innerHTML = data.cats
+        .map((c, i) => `<button class="chip" type="button" data-filter="${c.id}" aria-pressed="${i === 0}">${c.label}</button>`)
+        .join("");
+    }
     const chips = $$("[data-filter]");
     chips.forEach((chip) =>
       chip.addEventListener("click", () => {
@@ -238,14 +259,16 @@
     const modal = $("[data-modal]");
     if (!d || !modal) return;
     lastFocused = document.activeElement;
-    modal.querySelector(".modal__panel").style.setProperty("--c1", d.c1);
-    modal.querySelector(".modal__panel").style.setProperty("--c2", d.c2);
-    $("[data-modal-art]", modal).style.background = `linear-gradient(150deg, ${d.c1}, ${d.c2})`;
-    $("[data-modal-art]", modal).innerHTML = cupSVG(d.cup, { size: 92 });
+    const sh = shadeOf(d);
+    $("[data-modal-art]", modal).style.background = `linear-gradient(150deg, ${sh.c1}, ${sh.c2})`;
+    $("[data-modal-art]", modal).innerHTML = cupSVG(sh.cup, { size: 92 });
     $("[data-modal-title]", modal).textContent = d.name;
-    $("[data-modal-price]", modal).textContent = `${d.price} · ${d.caffeine} caffeine · roast ${d.roast}`;
+    $("[data-modal-price]", modal).textContent = `${d.price} · ${catLabel(d.cat)}`;
     $("[data-modal-desc]", modal).textContent = d.desc;
-    $("[data-modal-specs]", modal).innerHTML = d.specs.map((s) => `<li>${ICON.check}<span>${s}</span></li>`).join("");
+    const specs = d.specs || [];
+    const list = $("[data-modal-specs]", modal);
+    list.hidden = specs.length === 0;
+    list.innerHTML = specs.map((x) => `<li>${ICON.check}<span>${escapeHTML(x)}</span></li>`).join("");
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
@@ -268,6 +291,27 @@
       if (e.target === modal || e.target.closest("[data-modal-close]")) closeDrink();
     });
     document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeDrink(); });
+  }
+
+  /* ---------- add-ons ---------- */
+  function initAddOns() {
+    const el = $("[data-addons]");
+    if (!el || !data.addOns) return;
+    el.textContent = `Add ${data.addOns.items.join(", ").toLowerCase()} — ${data.addOns.price} each.`;
+  }
+
+  /* ---------- visit page notes + good-to-know ---------- */
+  function initVisitLists() {
+    const notes = $("[data-visit-notes]");
+    if (notes && data.visitNotes) {
+      notes.innerHTML = data.visitNotes
+        .map((n) => `<div class="info-row">${ICON[n.icon] || ""}<div><dt>${escapeHTML(n.title)}</dt><dd>${escapeHTML(n.text)}</dd></div></div>`)
+        .join("");
+    }
+    const know = $("[data-good-to-know]");
+    if (know && data.goodToKnow) {
+      know.innerHTML = data.goodToKnow.map((t) => `<li>${ICON.check}<span>${escapeHTML(t)}</span></li>`).join("");
+    }
   }
 
   /* ---------- reviews ---------- */
@@ -448,6 +492,8 @@
     initHours();
     initDrinks();
     initModal();
+    initAddOns();
+    initVisitLists();
     renderRatingSummary();
     renderReviews("all");
     initReviewFilters();

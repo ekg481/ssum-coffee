@@ -1,27 +1,35 @@
 # ssum coffee — website
 
-A fast, static marketing site for **ssum coffee** (Rowland Heights, CA), built around the
-black-and-white dog logo. No build step, no dependencies — open `index.html` and it runs.
+A fast, static marketing site for **ssum coffee** — 1841 W Lincoln Ave, Ste A, Anaheim, CA —
+built around the black-and-white dog sticker. No build step, no dependencies, no third-party
+requests: open `index.html` and it runs.
 
 ## Pages
 
 | File | What's on it |
 | --- | --- |
 | `index.html` | Hero, story, popular-drink gallery, review preview, hours + location, CTA |
-| `menu.html` | Full drink gallery with category filters and a detail sheet per drink |
+| `menu.html` | All 21 drinks with category filters and a detail sheet per drink |
 | `reviews.html` | Rating summary with distribution bars, filterable reviews, "leave a review" form |
-| `visit.html` | Address, map card, parking/wifi/dog notes, full hours, good-to-know list |
+| `visit.html` | Address, map card, visit notes, full hours, good-to-know list |
 
 ## Design
 
-- **Theme** — ink (`#14120f`) on paper (`#f7f4ef`) with a single latte accent (`#b98a56`),
-  taken from the logo's black-on-white line art. Dark mode is a full token swap, toggled in the
-  nav and remembered in `localStorage`.
-- **Type** — Fraunces (display) over Plus Jakarta Sans (UI), both with system fallbacks so the
-  page still looks right if the font CDN is blocked.
-- **Logo** — drawn as SVG, not a bitmap, so it's crisp at any size and recolors with the theme:
-  `assets/img/logo.svg` (dog + cup), `assets/img/mark.svg` (head only, for the nav circle),
-  `assets/img/favicon.svg`. The same dog appears as the sticker on every drink illustration.
+- **Strictly black and white.** Ink `#0e0e0d` on paper `#f6f6f4`, and nothing else — the drink
+  gallery works off a five-step greyscale ramp (`cream → light → mid → dark → espresso`) instead
+  of colour, stars and rating bars are ink, and the open/closed dot is solid when open and hollow
+  when shut rather than green/red. A test asserts no non-greyscale pixel colour survives in the
+  CSS. Dark mode is a full token swap, toggled in the nav and remembered in `localStorage`.
+- **Type** — Fraunces for editorial headlines, Plus Jakarta Sans for UI, and the shop's own
+  handwriting for everything menu-facing: **Patrick Hand** on drink names, prices, badges, filter
+  chips and the detail sheet, **Gochi Hand** for the ssum wordmark. All four are **self-hosted**
+  in `assets/fonts/` (~210KB, latin subset) — no Google Fonts call, so the handwriting shows up
+  even on a network that blocks the CDN.
+- **Logo** — redrawn as SVG to match the cup sticker: one continuous curly silhouette (crown and
+  floppy ears in a single outline), dot eyes, and the little cup held at the chin with a straw to
+  the mouth. `assets/img/mark.svg` = `logo.svg` (same art, used at every size),
+  `assets/img/favicon.svg`. The same dog rides as the sticker on every drink illustration, and it
+  recolors with the theme because it strokes in `currentColor`.
 
 ## Built for iPhone first
 
@@ -36,7 +44,7 @@ black-and-white dog logo. No build step, no dependencies — open `index.html` a
 
 ## Interactions
 
-Scroll reveals, a hover-paused marquee, category filters, the drink detail sheet
+Scroll reveals, a hover-paused marquee, category filters built from the menu data, the drink detail sheet
 (Esc / backdrop / button to close), a live **open / closed** badge computed from the hours data,
 animated rating bars, a star picker, copy-address-to-clipboard, and a toast for feedback.
 All of it respects `prefers-reduced-motion`.
@@ -49,13 +57,17 @@ average and the distribution bars so you can see how the page will look. "Clear 
 
 Everything an owner needs to change lives in **`assets/js/site-data.js`**:
 
-- `shop` — address, phone, email, Instagram, Maps search string, aggregate rating.
-  Values marked `<< EDIT >>` are **placeholders** (street address and phone especially) and must
-  be replaced with the real ones before launch.
-- `hours` — a 24-hour `open`/`close` per weekday (`17.5` = 5:30 PM). This one array drives the
-  hours tables on two pages *and* the live open/closed badge in the nav, footer and map card.
-- `drinks` — name, price, category, blurb, description, spec lines, caffeine, and the two colors
-  that paint the card gradient and the cup.
+- `shop` — address, phone, Instagram, Maps search string, aggregate rating. Address and phone are
+  the real ones; `email` is still a `<< EDIT >>` placeholder.
+- `hours` — a 24-hour `open`/`close` per weekday (`17.5` = 5:30 PM). Currently 7–5 every day;
+  **`<< CONFIRM >>`** this against your real schedule. This one array drives the hours tables on
+  two pages *and* the live open/closed badge in the nav, footer and map card.
+- `drinks` — **names and prices are transcribed from the menu board photo.** The one-line blurbs
+  and longer descriptions are drafts written to sound like the shop — read them and correct
+  anything that isn't how you actually make the drink. `shade` picks the card's greyscale tone.
+- `cats`, `addOns` — the category filters and the `+$1.00` add-on line, also off the board.
+- `visitNotes`, `goodToKnow` — the parking / sitting-in / dog notes and the visit-page list.
+  Marked `<< CONFIRM >>`: they read plausibly but nobody has verified them.
 - `reviews` — **sample content.** Replace with real, permitted quotes before launch.
 
 Add a drink or a review and every page that lists them updates — nothing is hard-coded in HTML.

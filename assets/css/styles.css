@@ -3,22 +3,59 @@
    Theme: ink & paper (black / off-white) with a warm latte accent
    ============================================================ */
 
+/* self-hosted webfonts — no third-party request, no CDN dependency */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../fonts/fraunces-italic.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../fonts/fraunces.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'Gochi Hand';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/gochi-hand.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'Patrick Hand';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/patrick-hand.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("../fonts/plus-jakarta-sans.woff2") format('woff2');
+}
+
 /* ---------- tokens ---------- */
 :root {
-  --paper:        #f7f4ef;
+  --paper:        #f6f6f4;
   --paper-2:      #ffffff;
-  --paper-3:      #efeae1;
-  --ink:          #14120f;
-  --ink-2:        #3a352e;
-  --ink-3:        #7b7368;
-  --line:         rgba(20, 18, 15, .12);
-  --line-soft:    rgba(20, 18, 15, .07);
-  --accent:       #b98a56;   /* latte */
-  --accent-soft:  rgba(185, 138, 86, .14);
-  --gold:         #d9a441;   /* stars */
-  --shadow-sm:    0 1px 2px rgba(20,18,15,.05), 0 4px 14px rgba(20,18,15,.05);
-  --shadow-md:    0 2px 6px rgba(20,18,15,.06), 0 18px 40px rgba(20,18,15,.09);
-  --shadow-lg:    0 30px 70px rgba(20,18,15,.16);
+  --paper-3:      #ebebe8;
+  --ink:          #0e0e0d;
+  --ink-2:        #38383a;
+  --ink-3:        #78787a;
+  --line:         rgba(14, 14, 13, .14);
+  --line-soft:    rgba(14, 14, 13, .08);
+  --accent:       #0e0e0d;                 /* black — no colour anywhere */
+  --accent-soft:  rgba(14, 14, 13, .07);
+  --gold:         #0e0e0d;                 /* stars are ink, not gold */
+  --shadow-sm:    0 1px 2px rgba(14,14,13,.05), 0 4px 14px rgba(14,14,13,.05);
+  --shadow-md:    0 2px 6px rgba(14,14,13,.06), 0 18px 40px rgba(14,14,13,.10);
+  --shadow-lg:    0 30px 70px rgba(14,14,13,.17);
 
   --r-sm: 12px;
   --r-md: 18px;
@@ -33,22 +70,26 @@
 
   --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
   --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* the shop's own handwriting — menu board and logo lettering */
+  --font-hand: "Patrick Hand", "Bradley Hand", "Segoe Print", "Comic Sans MS", cursive;
+  --font-marker: "Gochi Hand", var(--font-hand);
 
   --ease: cubic-bezier(.22, 1, .36, 1);
   color-scheme: light;
 }
 
 [data-theme="dark"] {
-  --paper:        #100f0d;
-  --paper-2:      #191714;
-  --paper-3:      #211e1a;
-  --ink:          #f6f2ea;
-  --ink-2:        #d5cec3;
-  --ink-3:        #9b9287;
-  --line:         rgba(246, 242, 234, .14);
-  --line-soft:    rgba(246, 242, 234, .08);
-  --accent:       #d5a56d;
-  --accent-soft:  rgba(213, 165, 109, .16);
+  --paper:        #0c0c0b;
+  --paper-2:      #141413;
+  --paper-3:      #1d1d1c;
+  --ink:          #f6f6f4;
+  --ink-2:        #d2d2cf;
+  --ink-3:        #949492;
+  --line:         rgba(246, 246, 244, .15);
+  --line-soft:    rgba(246, 246, 244, .08);
+  --accent:       #f6f6f4;
+  --accent-soft:  rgba(246, 246, 244, .10);
+  --gold:         #f6f6f4;
   --shadow-sm:    0 1px 2px rgba(0,0,0,.3), 0 4px 14px rgba(0,0,0,.3);
   --shadow-md:    0 2px 6px rgba(0,0,0,.35), 0 18px 40px rgba(0,0,0,.45);
   --shadow-lg:    0 30px 70px rgba(0,0,0,.55);
@@ -171,8 +212,8 @@ h1, h2, h3, .display {
   box-shadow: var(--shadow-sm);
   overflow: hidden;
 }
-.brand__mark svg, .brand__mark img { width: 116%; height: 116%; }
-.brand__name { font-family: var(--font-display); font-size: 1.28rem; font-weight: 600; letter-spacing: -0.04em; }
+.brand__mark svg, .brand__mark img { width: 92%; height: 92%; }
+.brand__name { font-family: var(--font-marker); font-size: 1.42rem; font-weight: 400; letter-spacing: 0; }
 .brand__name span { color: var(--ink-3); font-weight: 400; }
 
 .nav__links { display: flex; align-items: center; gap: 4px; }
@@ -238,7 +279,7 @@ h1, h2, h3, .display {
   font-size: clamp(2.9rem, 12vw, 6.4rem);
   letter-spacing: -0.045em;
 }
-.hero h1 em { font-style: italic; color: var(--accent); }
+.hero h1 em { font-family: var(--font-marker); font-style: normal; font-size: 1.08em; color: var(--ink); }
 .hero__lead {
   margin-top: 1.15rem; max-width: 44ch;
   color: var(--ink-2); font-size: clamp(1rem, 3.4vw, 1.14rem);
@@ -353,7 +394,8 @@ h1, h2, h3, .display {
   padding: 10px 18px; border-radius: var(--r-pill);
   border: 1px solid var(--line);
   background: var(--paper-2); color: var(--ink-2);
-  font-size: .88rem; font-weight: 600; cursor: pointer; white-space: nowrap;
+  font-family: var(--font-hand); font-size: .97rem; font-weight: 400; letter-spacing: .02em;
+  cursor: pointer; white-space: nowrap;
   transition: all .28s var(--ease);
 }
 .chip:hover { border-color: var(--ink-3); color: var(--ink); }
@@ -389,13 +431,13 @@ h1, h2, h3, .display {
   width: fit-content; max-width: calc(100% - 20px);
   padding: 5px 10px; border-radius: var(--r-pill);
   background: rgba(255,255,255,.86); color: #14120f;
-  font-size: clamp(.58rem, 2.1vw, .68rem); font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+  font-family: var(--font-hand); font-size: clamp(.7rem, 2.4vw, .8rem); font-weight: 400; letter-spacing: .01em; text-transform: uppercase;
   backdrop-filter: blur(8px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 .drink__body { padding: clamp(13px, 3.4vw, 18px) clamp(14px, 3.6vw, 20px) clamp(16px, 4vw, 22px); display: flex; flex-direction: column; gap: 6px; flex: 1; }
 .drink__row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
-.drink__name { font-family: var(--font-display); font-size: clamp(1rem, 3.6vw, 1.18rem); font-weight: 600; letter-spacing: -0.02em; }
-.drink__price { font-weight: 700; font-size: clamp(.85rem, 3vw, .95rem); color: var(--ink); flex: none; }
+.drink__name { font-family: var(--font-hand); font-size: clamp(1.06rem, 3.8vw, 1.28rem); font-weight: 400; letter-spacing: .01em; line-height: 1.15; }
+.drink__price { font-family: var(--font-hand); font-weight: 400; font-size: clamp(1rem, 3.2vw, 1.14rem); color: var(--ink); flex: none; }
 .drink__note { color: var(--ink-3); font-size: clamp(.8rem, 3vw, .88rem); line-height: 1.5; }
 .drink__foot { margin-top: auto; padding-top: 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: .74rem; color: var(--ink-3); }
 .drink__caf { white-space: nowrap; }
@@ -431,8 +473,8 @@ h1, h2, h3, .display {
 .modal__art { height: 170px; margin: 14px 14px 0; border-radius: var(--r-lg); display: grid; place-items: center; background: linear-gradient(150deg, var(--c1, #ddd), var(--c2, #bbb)); }
 .modal__art svg { width: 92px; }
 .modal__body { padding: 20px clamp(20px, 5vw, 30px) 4px; }
-.modal__body h3 { font-size: 1.7rem; }
-.modal__price { font-weight: 700; margin-top: 4px; color: var(--accent); }
+.modal__body h3 { font-family: var(--font-hand); font-weight: 400; font-size: 1.9rem; letter-spacing: .01em; }
+.modal__price { font-family: var(--font-hand); font-size: 1.06rem; margin-top: 2px; color: var(--ink-3); }
 .modal__desc { color: var(--ink-2); margin-top: 12px; }
 .modal__list { list-style: none; padding: 0; margin-top: 18px; display: grid; gap: 10px; }
 .modal__list li { display: flex; gap: 10px; align-items: flex-start; font-size: .92rem; color: var(--ink-2); }
@@ -486,10 +528,11 @@ h1, h2, h3, .display {
 .review__meta { color: var(--ink-3); font-size: .78rem; }
 .review__text { color: var(--ink-2); font-size: .95rem; }
 .review__drink {
+  font-family: var(--font-hand); font-size: .88rem;
   align-self: flex-start; margin-top: auto;
   padding: 6px 12px; border-radius: var(--r-pill);
   background: var(--paper-3); color: var(--ink-2);
-  font-size: .75rem; font-weight: 650;
+  font-weight: 400;
 }
 .review__badge { font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
 .masonry { columns: 1; column-gap: clamp(14px, 2.4vw, 22px); }
@@ -547,12 +590,13 @@ h1, h2, h3, .display {
   background: var(--paper-3); font-size: .85rem; font-weight: 650;
 }
 .status__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ink-3); position: relative; }
-.status.is-open .status__dot { background: #2fa36b; }
+/* open / closed stays monochrome: solid + pulsing when open, hollow when shut */
+.status.is-open .status__dot { background: var(--ink); }
 .status.is-open .status__dot::after {
   content: ""; position: absolute; inset: -5px; border-radius: 50%;
-  border: 2px solid #2fa36b; opacity: .55; animation: pulse 2s ease-out infinite;
+  border: 2px solid var(--ink); opacity: .5; animation: pulse 2s ease-out infinite;
 }
-.status.is-closed .status__dot { background: #d2564f; }
+.status.is-closed .status__dot { background: transparent; border: 2px solid var(--ink-3); }
 @keyframes pulse { 0% { transform: scale(.7); opacity: .6; } 100% { transform: scale(1.5); opacity: 0; } }
 
 /* ---------- location ---------- */
