@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Ssum Coffee logo: a fluffy dog sipping an iced coffee">
+  <g fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- fluffy head -->
+    <path d="M 100.00 40.00 A 15.87 15.87 0 0 1 123.79 46.98 A 15.87 15.87 0 0 1 140.02 65.72 A 15.87 15.87 0 0 1 143.55 90.26 A 15.87 15.87 0 0 1 133.25 112.81 A 15.87 15.87 0 0 1 112.40 126.22 A 15.87 15.87 0 0 1 87.60 126.22 A 15.87 15.87 0 0 1 66.75 112.81 A 15.87 15.87 0 0 1 56.45 90.26 A 15.87 15.87 0 0 1 59.98 65.72 A 15.87 15.87 0 0 1 76.21 46.98 A 15.87 15.87 0 0 1 100.00 40.00 Z"/>
+    <!-- eyes -->
+    <path d="M84 80 v7" />
+    <path d="M114 80 v7" />
+    <!-- nose + muzzle -->
+    <path d="M99 99 a5 4.2 0 0 1 -9 0" />
+    <path d="M99 99 a5 4.2 0 0 0 9 0" />
+    <!-- straw -->
+    <path d="M101 103 L 144 92" />
+  </g>
+  <g fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- cup -->
+    <path d="M131 100 h36 l-5.5 52 a6 6 0 0 1 -6 5 h-13 a6 6 0 0 1 -6 -5 Z"/>
+    <path d="M128 100 h42" />
+    <path d="M136 124 h26" />
+  </g>
+</svg>
