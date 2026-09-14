@@ -12,6 +12,7 @@ requests: open `index.html` and it runs.
 | `menu.html` | All 21 drinks with category filters and a detail sheet per drink |
 | `reviews.html` | Rating summary with distribution bars, filterable reviews, "leave a review" form |
 | `visit.html` | Address, map card, visit notes, full hours, good-to-know list |
+| `404.html` | Not-found page — Netlify and GitHub Pages both serve it automatically |
 
 ## Design
 
@@ -82,4 +83,12 @@ npx http-server -p 8080
 # or just open index.html
 ```
 
-Deploys as-is to GitHub Pages, Netlify, Vercel, or any static host.
+Deploys as-is to GitHub Pages, Netlify, Vercel, or any static host — there is nothing to
+build, so any of these work:
+
+- **GitHub Pages** — Settings → Pages → Deploy from a branch → this branch, folder `/ (root)`.
+- **Netlify Drop** — drag this folder (or a zip of its contents) onto <https://app.netlify.com/drop>.
+- **Locally** — just open `index.html`; every path is relative, so no server is required.
+
+Before pointing anyone at a public URL, replace the sample reviews and the drafted drink
+descriptions in `assets/js/site-data.js` (see above) — they are placeholders about a real shop.
